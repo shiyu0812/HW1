@@ -1,0 +1,25 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+// Function to compute the powerset
+void powerset(string S, int index, string current) {
+    if (index == S.length()) {
+        cout << "{" << current << "} ";
+        return;
+    }
+
+    // Exclude the current element
+    powerset(S, index + 1, current);
+
+    // Include the current element
+    powerset(S, index + 1, current + S[index]);
+}
+
+int main() {
+    string S = "abc";
+    powerset(S, 0, "");
+
+    return 0;
+}
